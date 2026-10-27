@@ -16,7 +16,7 @@ const sections = [
 export default function App() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-8 md:py-10">
+      <div className="mx-auto max-w-[1440px] px-4 py-8 md:py-10">
         <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight">devkit</h1>
