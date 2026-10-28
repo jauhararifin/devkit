@@ -375,7 +375,17 @@ export function JsonFormatter() {
                 const text = event.clipboardData.getData("text");
                 if (text) {
                   event.preventDefault();
-                  setInput(text);
+                  const textarea = event.currentTarget;
+                  const start = textarea.selectionStart;
+                  const end = textarea.selectionEnd;
+                  const cursor = start + text.length;
+
+                  setInput((value) =>
+                    `${value.slice(0, start)}${text}${value.slice(end)}`,
+                  );
+                  requestAnimationFrame(() => {
+                    textarea.setSelectionRange(cursor, cursor);
+                  });
                 }
               }}
               placeholder='{"hello":"world"}'
